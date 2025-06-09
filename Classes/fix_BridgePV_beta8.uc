@@ -39,7 +39,7 @@ function fixBridgePV_beta8Objects()
         foreach AllActors(class'BulletBox', BB)
         {
             SA = Mid(string(BB), InStr(string(BB), ".") + 1);
-            if ( (SA == "BulletBox0") || (SA == "BulletBox2") || (SA == "BulletBox3") || (SA == "BulletBox4") || (SA == "BulletBox11") )
+            if ( (SA == "BulletBox3") || (SA == "BulletBox4") || (SA == "BulletBox11") )
             {
                 V = BB.Location;
                 R = BB.Rotation;
@@ -69,15 +69,6 @@ function fixBridgePV_beta8Objects()
         R.Roll = 0;
         R.Yaw = 0;
         HP = Spawn(class'HealthPack',,, V, R);
-
-        // Add a RifleShell near the Sniper at Final exit
-        V.X = -2507.945801;
-        V.Y = -1440.486694;
-        V.Z = 1462.380005;
-        R.Pitch = 0;
-        R.Roll = 0;
-        R.Yaw = 0;
-        RS = Spawn(class'RifleShell',,, V, R);
 
         // Add a RocketLauncher near sniper and flak at the underwater tele exit
         V.X = 295.726440;
