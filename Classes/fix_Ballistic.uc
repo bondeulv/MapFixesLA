@@ -21,6 +21,7 @@ function BeginPlay()
 		 		fixWalls();
 		 		if (bIncludeLAS140Tweaks)
 		 			fixBallisticObjects();
+				spawnBallisticItems();
  		}
  	}
 }
@@ -94,6 +95,20 @@ function fixWalls()
 		}
 	}
 	if (bDebug) log("Ballistic Wall Fixes -->");
+}
+
+function spawnBallisticItems()
+{
+	local ItemEventSpawner Spawner;
+
+    // Example: Spawn a ShieldBelt after the generator is destroyed (event "powerdestroyed")
+    Spawner = Spawn(class'ItemEventSpawner',,, vect(-778.608215, -377.934814, -1006.903076));
+    if (Spawner != None)
+    {
+        Spawner.SpawnClass = class'UT_ShieldBelt';
+        Spawner.Tag = 'powerdestroyed';
+		Spawner.SpawnDelay = 10.0; // Set to 10 seconds delay
+    }
 }
 
 function fixTele_ThanksToMyM()

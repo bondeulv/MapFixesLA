@@ -20,6 +20,7 @@ function BeginPlay()
 			if (bIncludeLAS140Tweaks)
 				fixD2Spawns();
 			fixDesolateObjs();
+			spawnDesolate2Items();
 		}
 	}
 }
@@ -59,6 +60,17 @@ function fixDesolateObjs() {
 		}
 	}
 	if (bDebug) log("Desolate][ Fixes -->");
+}
+
+function spawnDesolate2Items() {
+	local ItemEventSpawner Spawner;
+	// Spawn Armor after Lower Levels
+	Spawner = Spawn(class'ItemEventSpawner',,, vect(-5275.133789, -477.687500, -1106.479858));
+	if (Spawner != None)
+	{
+		Spawner.SpawnClass = class'Armor2';
+		Spawner.Tag = 'dis1';
+	}
 }
 
 function fixD2Spawns() {

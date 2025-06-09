@@ -15,10 +15,7 @@ function BeginPlay()
         bTweaked = True;
         if (bEnabled)
         {
-            if (bIncludeLAS140Tweaks)
-            {
-                fixBridgePV_beta8Objects();
-            }
+            fixBridgePV_beta8Objects();
         }
     }
 }
@@ -34,6 +31,7 @@ function fixBridgePV_beta8Objects()
     local HealthPack HP;
     local Vector V;
     local Rotator R;
+    local UT_Eightball RL;
 
     S = Left(Self, InStr(Self, "."));
     if(S~="AS-BridgePV_beta8")
@@ -88,7 +86,9 @@ function fixBridgePV_beta8Objects()
         R.Pitch = 0;
         R.Roll = 0;
         R.Yaw = 0;
-        Spawn(class'UT_EightBall',,, V, R);
+        RL = Spawn(class'UT_EightBall',,, V, R);
+        RL.bRotatingPickup = False;
+        RL.SetWeaponStay();
     }
 }
 

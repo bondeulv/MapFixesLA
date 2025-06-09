@@ -10,6 +10,7 @@ var() config bool bDebug;
 function BeginPlay()
 {
 	local string S;
+	
 	Super.BeginPlay();
 	if (!bTweaked)
 	{
@@ -18,7 +19,7 @@ function BeginPlay()
 		if (bEnabled && S~="AS-Riverbed]l[AL")
 		{
 			fixRiverbed3();
-		
+			spawnRiverbed3Items();
 		}
 	}
 }
@@ -47,11 +48,24 @@ function fixRiverbed3() {
 		KR.SetCollisionSize(KickerR[i],KickerH[i]);
 		KR.KickVelocity = vect(150.000000,150.000000,-80.000000);
 		if (bDebug) log("* Spawned KR - L:"@KR.Location@"/ R:"@KR.CollisionRadius@"/ H:"@KR.CollisionHeight);
+
 	}
 	if (bDebug) log("Riv3 Wall Tweak -->");
 }
 
+function spawnRiverbed3Items() {
+	local ItemEventSpawner Spawner;
+	// Spawns armor in truck after Compressor
+	Spawner = Spawn(class'ItemEventSpawner',,, vect(-2340.212158, -3763.420410, 975.493347));
+	if (Spawner != None)
+	{
+		Spawner.SpawnClass = class'Armor2';
+		Spawner.Tag = 'DP2';
+	}
+}
+
 defaultproperties
 {
-     bEnabled=False
+     bEnabled=True
+	 Tag=DP2
 }

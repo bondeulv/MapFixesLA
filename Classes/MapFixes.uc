@@ -108,6 +108,9 @@ function fixMaps()
 		case "AS-SUBMARINEBASE][":
 			F = Spawn(class'fix_Submarinebase2');
 			break;
+		case "AS-THEDUNGEON]L[AL":
+			F = Spawn(class'fix_TheDungeon3AL');
+			break;
 		case "THEDUNGEON]L[BETA2":
 			F = Spawn(class'fix_TheDungeons3Betas');
 			break;
