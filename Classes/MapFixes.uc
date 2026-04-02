@@ -111,6 +111,12 @@ function fixMaps()
 		case "AS-THEDUNGEON]L[AL":
 			F = Spawn(class'fix_TheDungeon3AL');
 			break;
+		case "AS-THEPROJECTEXT5":
+			F = Spawn(class'fix_TheProjectEXT5');
+			break;
+		case "AS-SAQQARAPE_BETA4A1":
+			F = Spawn(class'fix_SaqqaraPE_beta4a1');
+			break;
 		case "THEDUNGEON]L[BETA2":
 			F = Spawn(class'fix_TheDungeons3Betas');
 			break;
